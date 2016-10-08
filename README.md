@@ -1,2 +1,6 @@
 # cloudComputing
-For Cloud Computing Class Project
+Login part of Cloud Computing Project:
+
+Key words:
+	AngularJS
+	Express

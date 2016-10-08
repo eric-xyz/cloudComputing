@@ -1,0 +1,27 @@
+{
+  "name": "weblogin",
+  "version": "1.0.0",
+  "description": "access control based on google app engine",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eric-xyz/cloudComputing.git"
+  },
+  "keywords": [
+    "AngularJS",
+    "Express",
+    "Node.js"
+  ],
+  "dependencies": {
+    "express": "*"
+  },
+  "author": "Eric",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eric-xyz/cloudComputing/issues"
+  },
+  "homepage": "https://github.com/eric-xyz/cloudComputing#readme"
+}
