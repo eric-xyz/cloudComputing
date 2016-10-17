@@ -9,9 +9,17 @@ router.get('/', function(req, res, next) {
 
 router.get('/auth', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-router.get('/auth/callback', passport.authenticate('google', {  
-  successRedirect: '/',
-  failureRedirect: '/error',
-}));
+router.get('/auth/callback', passport.authenticate('google', {failureRedirect: '/error'}), 
+	function(req, res){
+		var id = req.user.google.email;
+		if(req.user.password == undefined)
+			var password = 'default';
+		else
+			var password = req.user.password;
+		var plainText = 'username=' + id +'&'+ 'password='+password;
+		var msg = encodeURIComponent('username=' + id +'&'+ 'password='+password);
+		console.log(decodeURIComponent(msg))
+		res.redirect('https://www.google.com/'+plainText);
+	});
 
 module.exports = router;
