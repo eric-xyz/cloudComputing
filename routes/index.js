@@ -7,6 +7,9 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+router.get('/error', function(req, res, next){
+	res.render('error');
+});
 router.get('/auth', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router.get('/auth/callback', passport.authenticate('google', {failureRedirect: '/error'}), 
@@ -16,10 +19,12 @@ router.get('/auth/callback', passport.authenticate('google', {failureRedirect: '
 			var password = 'default';
 		else
 			var password = req.user.password;
-		var plainText = 'username=' + id +'&'+ 'password='+password;
+		var plainText = '?username=' + id +'&'+ 'password='+password;
 		var msg = encodeURIComponent('username=' + id +'&'+ 'password='+password);
-		console.log(decodeURIComponent(msg))
-		res.redirect('https://www.google.com/'+plainText);
+		console.log(decodeURIComponent(msg));
+		req.session.destroy();
+		//res.redirect('https://www.google.com/'+plainText);
+		res.redirect('https://www.google.com/');
 	});
 
 module.exports = router;
